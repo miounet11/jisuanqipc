@@ -1,50 +1,83 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+# 智能计算器 Constitution
 
-## Core Principles
+<!--
+Sync Impact Report (Version 1.0.0):
+- 首次创建项目宪章
+- 版本变更: 无 → 1.0.0 (初始版本)
+- 新增5个核心原则
+- 新增质量标准和开发流程章节
+- 模板状态: 需要后续验证相关模板文件
+-->
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+## 核心原则
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### I. 模块化架构
+每个计算功能必须设计为独立模块；模块间通过标准接口通信，确保低耦合高内聚；每个模块必须可单独测试、部署和维护；避免功能重复，共享组件必须抽象到公共库。
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+**原理**: 支持功能的独立开发和迭代，便于团队协作和代码维护。
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### II. 计算精度优先 (NON-NEGOTIABLE)
+所有数值计算必须确保精度和稳定性；采用高精度数学库处理浮点运算；对边界值、异常输入必须有完善的错误处理；计算结果必须通过数学验证测试。
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+**原理**: 计算器的核心价值在于准确性，任何精度问题都是致命缺陷。
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+### III. 用户体验一致性
+界面设计遵循统一的设计系统；所有模块的交互模式保持一致；支持多种输入方式（触摸、键盘、语音）；提供直观的视觉反馈和错误提示。
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+**原理**: 一致的用户体验降低学习成本，提升用户满意度。
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+### IV. 性能与响应性
+UI响应时间必须小于100ms；复杂计算采用后台处理，提供进度反馈；内存使用优化，避免内存泄漏；支持大数据量的绘图和计算。
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+**原理**: 流畅的性能是移动应用的基本要求，直接影响用户体验。
+
+### V. 安全与隐私保护
+敏感数据（如私密日记）必须加密存储；不收集用户个人计算数据；支持离线计算，减少网络依赖；代码必须通过安全审计。
+
+**原理**: 保护用户隐私是应用的基本责任，建立用户信任。
+
+## 质量标准
+
+### 测试覆盖要求
+- 单元测试覆盖率不低于90%
+- 所有计算函数必须包含边界值测试
+- UI组件必须包含自动化测试
+- 性能基准测试覆盖关键计算路径
+- 多平台兼容性测试（iOS、Android）
+
+### 代码规范
+- 遵循平台官方编码规范（Swift/Kotlin）
+- 强制代码审查，至少两人review
+- 使用静态分析工具检查代码质量
+- 文档覆盖所有公共API
+- 版本控制采用Git Flow工作流
+
+## 开发流程
+
+### 功能开发流程
+1. **需求分析**: 明确功能边界和用户场景
+2. **技术设计**: 模块设计、接口定义、性能指标
+3. **测试驱动**: 先写测试用例，再实现功能
+4. **代码实现**: 遵循代码规范，注重可读性
+5. **集成测试**: 模块间集成验证
+6. **用户验收**: 产品经理和用户体验验证
+
+### 发布管理
+- 采用语义化版本控制 (MAJOR.MINOR.PATCH)
+- 主要功能更新为MINOR版本
+- 破坏性变更为MAJOR版本
+- Bug修复为PATCH版本
+- 发布前必须通过完整回归测试
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+### 宪章权威性
+本宪章是项目开发的最高准则，覆盖所有开发实践；任何修改必须经过技术委员会讨论和批准；所有代码审查必须验证宪章合规性；复杂度增加必须有充分的技术和业务理由。
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+### 修改程序
+宪章修改需要技术负责人发起提案；提案必须包含变更理由、影响评估和迁移计划；修改后必须更新相关文档和开发指南；重大修改需要团队投票通过。
+
+### 合规审查
+每月进行宪章合规性审查；项目里程碑节点强制合规检查；违规问题必须在下个迭代修复；建立合规性指标监控仪表板。
+
+**Version**: 1.0.0 | **Ratified**: 2025-09-22 | **Last Amended**: 2025-09-22
